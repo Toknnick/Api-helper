@@ -22,12 +22,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String updateUser(User user) {
-        userRepository.save(user);
-        return "Success";
-    }
-
-    @Override
     public String deleteUser(String login) {
         userRepository.deleteById(login);
         return "Success";
