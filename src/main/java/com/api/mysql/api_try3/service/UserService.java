@@ -8,5 +8,4 @@ public interface UserService {
     public String createUser(User user);
     public String deleteUser(String login);
     public User getUser(String login);
-    public List<User> getAllUsers();
 }

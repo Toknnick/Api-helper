@@ -31,9 +31,4 @@ public class UserServiceImpl implements UserService {
     public User getUser(String login) {
         return userRepository.findById(login).orElse(null);
     }
-
-    @Override
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
-    }
 }
