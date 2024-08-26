@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:mysql://147.45.151.184:3306/default_db?useSSL=false
+    username: gen_user
+    password: 6)!J;Ag7Yo9N^
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: true
+    show-sql: true
+server:
+  port: 80
