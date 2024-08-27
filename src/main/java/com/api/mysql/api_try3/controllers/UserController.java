@@ -38,4 +38,15 @@ public class UserController {
             return "User does not exist";
         }
     }
+
+
+    @DeleteMapping("/delete/{login}")
+    public String deleteUser(@PathVariable("login") String login) {
+        if(userService.getUser(login) != null) {
+            userService.deleteUser(login);
+            return "User deleted successfully";
+        }else{
+            return "User does not exist";
+        }
+    }
 }
