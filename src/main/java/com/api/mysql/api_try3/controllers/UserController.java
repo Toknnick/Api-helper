@@ -29,11 +29,11 @@ public class UserController {
         }
     }
 
-    @DeleteMapping("/delete/{login}")
-    public String deleteUser(@PathVariable("login") String login) {
+    @PutMapping("/update/{login}")
+    public String updateUser(@PathVariable("login") String login, @RequestBody User user) {
         if(userService.getUser(login) != null) {
-            userService.deleteUser(login);
-            return "User deleted successfully";
+            userService.updateUser(user);
+            return "User updated successfully";
         }else{
             return "User does not exist";
         }

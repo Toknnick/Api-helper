@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface UserService {
     public String createUser(User user);
-    public String deleteUser(String login);
+    public String updateUser(User user);
     public User getUser(String login);
 }

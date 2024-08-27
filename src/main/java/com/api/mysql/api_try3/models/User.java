@@ -10,14 +10,16 @@ public class User {
     private String login;
 
     private String password;
+    private Long ownRoom;
     private String availableRooms;
 
     public User() {
     }
 
-    public User(String login, String password, String availableRooms) {
+    public User(String login, String password, String availableRooms, Long ownRoom) {
         this.login = login;
         this.password = password;
+        this.ownRoom = ownRoom;
         this.availableRooms = availableRooms;
     }
 
@@ -44,4 +46,15 @@ public class User {
     public void setAvailableRooms(String availableRooms) {
         this.availableRooms = availableRooms;
     }
+
+
+    public Long getOwnRoom() {
+        return ownRoom;
+    }
+
+    public void setOwnRoom(Long ownRoom) {
+        this.ownRoom = ownRoom;
+    }
+
+
 }

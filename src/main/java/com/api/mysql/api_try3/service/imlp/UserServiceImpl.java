@@ -1,5 +1,6 @@
 package com.api.mysql.api_try3.service.imlp;
 
+import com.api.mysql.api_try3.models.Room;
 import com.api.mysql.api_try3.models.User;
 import com.api.mysql.api_try3.repository.UserRepository;
 import com.api.mysql.api_try3.service.UserService;
@@ -22,8 +23,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String deleteUser(String login) {
-        userRepository.deleteById(login);
+    public String updateUser(User user) {
+        User existingUser = userRepository.findById(user.getLogin()).orElse(new User());
+        existingUser.setLogin(user.getLogin() != null ? user.getLogin() : existingUser.getLogin());
+        existingUser.setPassword(user.getPassword() != null ? user.getPassword() : existingUser.getPassword());
+        existingUser.setOwnRoom(user.getOwnRoom() != null ? user.getOwnRoom() : existingUser.getOwnRoom());
+        existingUser.setAvailableRooms(user.getAvailableRooms() != null ? user.getAvailableRooms() : existingUser.getAvailableRooms());
+        userRepository.save(existingUser);
         return "Success";
     }
 
