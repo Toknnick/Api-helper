@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 @Table(name="rooms")
 public class Room {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idRoom;
     private String name;
     private String password;

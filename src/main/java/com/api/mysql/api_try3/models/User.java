@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 @Table(name="users")
 public class User {
     @Id
-    @Column(unique = true)
     private String login;
 
     private String password;

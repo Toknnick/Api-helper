@@ -8,7 +8,6 @@ import java.sql.Date;
 @Table(name="events")
 public class Event {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idEvent;
     private Long idRoom;
     private Date date;

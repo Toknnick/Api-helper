@@ -8,7 +8,6 @@ import java.sql.Date;
 public class Task {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idTask;
     private Long idRoom;
     private Date date;
