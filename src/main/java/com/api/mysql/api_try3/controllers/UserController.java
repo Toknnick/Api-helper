@@ -29,9 +29,9 @@ public class UserController {
         }
     }
 
-    @PutMapping("/update/{login}")
-    public String updateUser(@PathVariable("login") String login, @RequestBody User user) {
-        if(userService.getUser(login) != null) {
+    @PutMapping("/update")
+    public String updateUser(@RequestBody User user) {
+        if(userService.getUser(user.getLogin()) != null) {
             userService.updateUser(user);
             return "User updated successfully";
         }else{
