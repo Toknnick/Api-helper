@@ -20,19 +20,25 @@ public class RoomController {
 
 
     @PostMapping("/create")
-    public String createRoom(@RequestBody Room room) {
+    public Room createRoom(@RequestBody Room room) {
         roomService.createRoom(room);
-        return "Room created successfully";
+        return room;
     }
 
     @PutMapping("/update")
-    public String updateRoom(@RequestBody Room room) {
+    public Room updateRoom(@RequestBody Room room) {
         if(roomService.getRoom(room.getIdRoom()) != null) {
             roomService.updateRoom(room);
-            return "Room updated successfully";
+            return room;
         }else{
-            return "Room does not exist";
+            return null;
         }
+    }
+
+    @DeleteMapping("/delete/{idRoom}")
+    public String deleteRoom(@PathVariable("idRoom") Long idRoom) {
+        roomService.deleteRoom(idRoom);
+        return "Room deleted successfully";
     }
 
 }

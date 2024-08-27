@@ -27,9 +27,9 @@ public class TaskController {
     }
 
     @PostMapping("/create")
-    public String createTask(@RequestBody Task task) {
+    public Task createTask(@RequestBody Task task) {
         taskService.createTask(task);
-        return "Task created successfully";
+        return task;
     }
 
     @DeleteMapping("/delete")

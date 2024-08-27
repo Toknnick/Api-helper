@@ -17,20 +17,20 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String createUser(User user) {
+    public User createUser(User user) {
         userRepository.save(user);
-        return "Success";
+        return user;
     }
 
     @Override
-    public String updateUser(User user) {
+    public User updateUser(User user) {
         User existingUser = userRepository.findById(user.getLogin()).orElse(new User());
         existingUser.setLogin(user.getLogin() != null ? user.getLogin() : existingUser.getLogin());
         existingUser.setPassword(user.getPassword() != null ? user.getPassword() : existingUser.getPassword());
         existingUser.setOwnRoom(user.getOwnRoom() != null ? user.getOwnRoom() : existingUser.getOwnRoom());
         existingUser.setAvailableRooms(user.getAvailableRooms() != null ? user.getAvailableRooms() : existingUser.getAvailableRooms());
         userRepository.save(existingUser);
-        return "Success";
+        return user;
     }
 
     @Override

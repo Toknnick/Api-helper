@@ -20,22 +20,22 @@ public class UserController {
     }
 
     @PostMapping("/create")
-    public String createUser(@RequestBody User user) {
+    public User createUser(@RequestBody User user) {
         if(userService.getUser(user.getLogin()) != null) {
-            return "User already exists. Try another login.";
+            return null;
         }else {
             userService.createUser(user);
-            return "User created successfully";
+            return user;
         }
     }
 
     @PutMapping("/update")
-    public String updateUser(@RequestBody User user) {
+    public User updateUser(@RequestBody User user) {
         if(userService.getUser(user.getLogin()) != null) {
             userService.updateUser(user);
-            return "User updated successfully";
+            return user;
         }else{
-            return "User does not exist";
+            return null;
         }
     }
 

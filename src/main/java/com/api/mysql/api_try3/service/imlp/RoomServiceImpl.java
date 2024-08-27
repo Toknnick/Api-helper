@@ -16,22 +16,29 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Override
-    public String createRoom(Room room) {
+    public Room createRoom(Room room) {
         roomRepository.save(room);
-        return "Success";
+        return room;
     }
 
     @Override
-    public String updateRoom(Room room) {
+    public Room updateRoom(Room room) {
         Room existingRoom = roomRepository.findById(room.getIdRoom()).orElse(new Room());
         existingRoom.setName(room.getName() != null ? room.getName() : existingRoom.getName());
         existingRoom.setPassword(room.getPassword() != null ? room.getPassword() : existingRoom.getPassword());
         roomRepository.save(existingRoom);
-        return "";
+        return room;
     }
 
     @Override
     public Room getRoom(Long idRoom) {
         return roomRepository.findById(idRoom).orElse(null);
     }
+
+    @Override
+    public String deleteRoom(Long idRoom) {
+        roomRepository.deleteById(idRoom);
+        return "Success";
+    }
+
 }

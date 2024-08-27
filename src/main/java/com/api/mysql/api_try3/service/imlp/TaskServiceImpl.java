@@ -17,9 +17,9 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public String createTask(Task task) {
+    public Task createTask(Task task) {
         taskRepository.save(task);
-        return "Success";
+        return task;
     }
 
     @Override

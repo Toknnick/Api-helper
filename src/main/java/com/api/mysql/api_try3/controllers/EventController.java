@@ -27,9 +27,9 @@ public class EventController {
     }
 
     @PostMapping("/create")
-    public String createEvent(@RequestBody Event event) {
+    public Event createEvent(@RequestBody Event event) {
         eventService.createEvent(event);
-        return "Event created successfully";
+        return event;
     }
 
     @DeleteMapping("/delete")
