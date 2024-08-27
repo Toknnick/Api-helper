@@ -7,6 +7,8 @@ import com.api.mysql.api_try3.service.EventService;
 import com.api.mysql.api_try3.service.RoomService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class RoomServiceImpl implements RoomService {
     RoomRepository roomRepository;
@@ -39,6 +41,11 @@ public class RoomServiceImpl implements RoomService {
     public String deleteRoom(Long idRoom) {
         roomRepository.deleteById(idRoom);
         return "Success";
+    }
+
+    @Override
+    public List<Room> getAllRooms() {
+        return roomRepository.findAll();
     }
 
 }

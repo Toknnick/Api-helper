@@ -4,6 +4,8 @@ import com.api.mysql.api_try3.models.Room;
 import com.api.mysql.api_try3.service.RoomService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/rooms")
 public class RoomController {
@@ -16,6 +18,11 @@ public class RoomController {
     @GetMapping("/get/{idRoom}")
     public Room getRoomDetails(@PathVariable("idRoom") Long idRoom) {
         return roomService.getRoom(idRoom);
+    }
+
+    @GetMapping("/get/all")
+    public List<Room> getAllRooms() {
+        return roomService.getAllRooms();
     }
 
 
