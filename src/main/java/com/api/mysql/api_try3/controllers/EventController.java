@@ -18,7 +18,7 @@ public class EventController {
 
     @GetMapping("/get/one")
     public Event getEventDetails(@RequestBody Event event) {
-        return eventService.getEventByDate(event.getIdRoom(), event.getDate(), event.getTime(), event.getPlace(), event.getEvent());
+        return eventService.getEvent(event.getIdRoom(), event.getDate(), event.getTime(), event.getPlace(), event.getEvent());
     }
 
     @GetMapping("/get/all/{idRoom}")
@@ -32,9 +32,15 @@ public class EventController {
         return event;
     }
 
+    @PutMapping("/update")
+    public Event updateEvent(@RequestBody Event event) {
+        eventService.updateEvent(event);
+        return event;
+    }
+
     @DeleteMapping("/delete")
     public String deleteEvent(@RequestBody Event tempEvent) {
-        Event event = eventService.getEventByDate(tempEvent.getIdRoom(), tempEvent.getDate(), tempEvent.getTime(), tempEvent.getPlace(), tempEvent.getEvent());
+        Event event = eventService.getEvent(tempEvent.getIdRoom(), tempEvent.getDate(), tempEvent.getTime(), tempEvent.getPlace(), tempEvent.getEvent());
         if(event != null) {
             eventService.deleteEvent(event);
             return "Event deleted successfully";

@@ -1,6 +1,7 @@
 package com.api.mysql.api_try3.service.imlp;
 
 import com.api.mysql.api_try3.models.Event;
+import com.api.mysql.api_try3.models.Room;
 import com.api.mysql.api_try3.repository.EventRepository;
 import com.api.mysql.api_try3.service.EventService;
 import org.springframework.stereotype.Service;
@@ -24,14 +25,21 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
+    public Event updateEvent(Event event) {
+        eventRepository.save(event);
+        return event;
+    }
+
+
+    @Override
     public String deleteEvent(Event event) {
         eventRepository.deleteById(event.getIdEvent());
         return "Success";
     }
 
     @Override
-    public Event getEventByDate(Long idRoom, Date date, String time, String place, String event) {
-        return eventRepository.findEventByCriteria(idRoom, date, time, place, event).get(0);
+    public Event getEvent(Long idRoom, String date, String time, String place, String event) {
+        return eventRepository.findEventByCriteria(idRoom, date, time, place, event).stream().findFirst().orElse(null);
     }
 
     @Override

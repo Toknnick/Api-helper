@@ -10,7 +10,7 @@ public class Event {
     @Id
     private Long idEvent;
     private Long idRoom;
-    private Date date;
+    private String date;
     private String time;
     private String place;
     private String event;
@@ -31,11 +31,11 @@ public class Event {
         this.idRoom = idRoom;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

@@ -1,5 +1,6 @@
 package com.api.mysql.api_try3.service.imlp;
 
+import com.api.mysql.api_try3.models.Event;
 import com.api.mysql.api_try3.models.Task;
 import com.api.mysql.api_try3.repository.TaskRepository;
 import com.api.mysql.api_try3.service.TaskService;
@@ -29,8 +30,14 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public Task getTaskByDate(Long idRoom, Date date, String time, String name, String points, String checkBoxes) {
-        return taskRepository.findTaskByCriteria(idRoom, date, time, name, points, checkBoxes).get(0);
+    public Task updateTask(Task task) {
+        taskRepository.save(task);
+        return task;
+    }
+
+    @Override
+    public Task getTask(Long idRoom, String date, String time, String name, String points, String checkBoxes) {
+        return taskRepository.findTaskByCriteria(idRoom, date, time, name, points, checkBoxes).stream().findFirst().orElse(null);
     }
 
     @Override

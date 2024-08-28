@@ -18,7 +18,7 @@ public class TaskController {
 
     @GetMapping("/get/one")
     public Task getTaskDetails(@RequestBody Task task) {
-        return taskService.getTaskByDate(task.getIdRoom(), task.getDate(), task.getTime(), task.getName(), task.getPoints(), task.getCheckBoxes());
+        return taskService.getTask(task.getIdRoom(), task.getDate(), task.getTime(), task.getName(), task.getPoints(), task.getCheckBoxes());
     }
 
     @GetMapping("/get/all/{idRoom}")
@@ -31,10 +31,16 @@ public class TaskController {
         taskService.createTask(task);
         return task;
     }
+    @PutMapping("/update")
+    public Task updateEvent(@RequestBody Task task) {
+        taskService.updateTask(task);
+        return task;
+    }
+
 
     @DeleteMapping("/delete")
     public String deleteTask(@RequestBody Task tempTask) {
-        Task task = taskService.getTaskByDate(tempTask.getIdRoom(), tempTask.getDate(), tempTask.getTime(), tempTask.getName(), tempTask.getPoints(), tempTask.getCheckBoxes());
+        Task task = taskService.getTask(tempTask.getIdRoom(), tempTask.getDate(), tempTask.getTime(), tempTask.getName(), tempTask.getPoints(), tempTask.getCheckBoxes());
         if(task != null) {
             taskService.deleteTask(task);
             return "Task deleted successfully";

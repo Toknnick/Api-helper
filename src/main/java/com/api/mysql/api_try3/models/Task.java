@@ -10,7 +10,7 @@ public class Task {
     @Id
     private Long idTask;
     private Long idRoom;
-    private Date date;
+    private String date;
     private String time;
     private String name;
     private String points;
@@ -24,11 +24,11 @@ public class Task {
         this.idRoom = idRoom;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
