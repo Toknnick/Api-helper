@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface EventRepository extends JpaRepository<Event, Long> {
     @Query("SELECT e FROM Event e WHERE e.idRoom = :idRoom AND e.date = :date AND e.time = :time AND e.place = :place AND e.event = :event")
-    List<Event> findEventByCriteria(@Param("idRoom") Long idRoom, @Param("date") String date, @Param("time") String time, @Param("place") String place, @Param("event") String event);
+    Event findEventByCriteria(@Param("idRoom") Long idRoom, @Param("date") String date, @Param("time") String time, @Param("place") String place, @Param("event") String event);
 
     List<Event> findByIdRoom(Long idRoom);
 }

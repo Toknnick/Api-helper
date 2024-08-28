@@ -38,8 +38,8 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
-    public Event getEvent(Long idRoom, String date, String time, String place, String event) {
-        return eventRepository.findEventByCriteria(idRoom, date, time, place, event).stream().findFirst().orElse(null);
+    public Event getEvent(Long idRoom, String date,String time, String place, String event) {
+        return eventRepository.findEventByCriteria(idRoom, date,time,place,event);
     }
 
     @Override

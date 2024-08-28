@@ -8,6 +8,6 @@ public interface EventService {
     public Event createEvent(Event event);
     public String deleteEvent(Long idEvent);
     public Event updateEvent(Event event);
-    public Event getEvent(Long idRoom, String date, String time, String place, String event);
+    public Event getEvent(Long idRoom, String date, String time, String place,String event);
     public List<Event> getEvents(Long idRoom);
 }
