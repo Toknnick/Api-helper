@@ -38,15 +38,10 @@ public class TaskController {
     }
 
 
-    @DeleteMapping("/delete")
-    public String deleteTask(@RequestBody Task tempTask) {
-        Task task = taskService.getTask(tempTask.getIdRoom(), tempTask.getDate(), tempTask.getTime(), tempTask.getName(), tempTask.getPoints(), tempTask.getCheckBoxes());
-        if(task != null) {
-            taskService.deleteTask(task);
-            return "Task deleted successfully";
-        }else{
-            return "Task does not exist";
-        }
+    @DeleteMapping("/delete/{idTask}")
+    public String deleteTask(@PathVariable("idTask") Long idTask) {
+        taskService.deleteTask(idTask);
+        return "Task deleted successfully";
     }
 
 }

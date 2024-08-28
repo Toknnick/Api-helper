@@ -38,15 +38,10 @@ public class EventController {
         return event;
     }
 
-    @DeleteMapping("/delete")
-    public String deleteEvent(@RequestBody Event tempEvent) {
-        Event event = eventService.getEvent(tempEvent.getIdRoom(), tempEvent.getDate(), tempEvent.getTime(), tempEvent.getPlace(), tempEvent.getEvent());
-        if(event != null) {
-            eventService.deleteEvent(event);
-            return "Event deleted successfully";
-        }else{
-            return "Event does not exist";
-        }
+    @DeleteMapping("/delete/{idEvent}")
+    public String deleteEvent(@PathVariable("idEvent") Long idEvent) {
+        eventService.deleteEvent(idEvent);
+        return "Event deleted successfully";
     }
 
 }
