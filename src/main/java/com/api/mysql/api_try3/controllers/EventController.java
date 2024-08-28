@@ -16,9 +16,10 @@ public class EventController {
     }
 
 
-    @GetMapping("/get/one")
-    public Event getEventDetails(@RequestBody Event event) {
-        return eventService.getEvent(event.getIdRoom(), event.getDate(), event.getTime(), event.getPlace(), event.getEvent());
+    @GetMapping("/get/one/{idRoom}/{date}/{time}/{place}/{event}")
+    public Event getEventDetails(@PathVariable("idRoom") Long idRoom,@PathVariable("date") String date,@PathVariable("time")String time
+            ,@PathVariable("place") String place,@PathVariable("event") String event) {
+        return eventService.getEvent(idRoom, date, time, place, event);
     }
 
     @GetMapping("/get/all/{idRoom}")
