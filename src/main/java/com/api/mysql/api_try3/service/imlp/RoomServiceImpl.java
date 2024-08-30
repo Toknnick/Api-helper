@@ -6,9 +6,11 @@ import com.api.mysql.api_try3.repository.RoomRepository;
 import com.api.mysql.api_try3.service.EventService;
 import com.api.mysql.api_try3.service.RoomService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Transactional
 @Service
 public class RoomServiceImpl implements RoomService {
     RoomRepository roomRepository;

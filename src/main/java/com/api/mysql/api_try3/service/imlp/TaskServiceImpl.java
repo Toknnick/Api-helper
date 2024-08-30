@@ -5,10 +5,12 @@ import com.api.mysql.api_try3.models.Task;
 import com.api.mysql.api_try3.repository.TaskRepository;
 import com.api.mysql.api_try3.service.TaskService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
 import java.util.List;
 
+@Transactional
 @Service
 public class TaskServiceImpl implements TaskService {
     TaskRepository taskRepository;

@@ -5,10 +5,12 @@ import com.api.mysql.api_try3.models.Room;
 import com.api.mysql.api_try3.repository.EventRepository;
 import com.api.mysql.api_try3.service.EventService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
 import java.util.List;
 
+@Transactional
 @Service
 public class EventServiceImpl implements EventService {
     EventRepository eventRepository;
