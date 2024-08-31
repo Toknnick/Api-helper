@@ -9,6 +9,16 @@ public class Room {
     private Long idRoom;
     private String name;
     private String password;
+    private Boolean single;
+
+    public Boolean getSingle() {
+        return single;
+    }
+
+    public void setSingle(Boolean single) {
+        this.single = single;
+    }
+
 
     public Long getIdRoom() {
         return idRoom;
