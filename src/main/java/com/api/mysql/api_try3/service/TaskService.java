@@ -9,6 +9,8 @@ public interface TaskService {
     public String deleteTask(Long idTask);
     public Task updateTask(Task task);
     public Task getTask(Long idRoom, String date, String time, String name, String points, String checkBoxes);
-    public List<Task> getTasks(Long idRoom);
+    public List<Task> getTasksByIdRoom(Long idRoom);
+    public List<Task> getAllTasks();
+
 
 }

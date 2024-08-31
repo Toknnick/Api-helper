@@ -9,5 +9,6 @@ public interface EventService {
     public String deleteEvent(Long idEvent);
     public Event updateEvent(Event event);
     public Event getEvent(Long idRoom, String date, String time, String place,String event);
-    public List<Event> getEvents(Long idRoom);
+    public List<Event> getEventsByIdRoom(Long idRoom);
+    public List<Event> getAllEvents();
 }

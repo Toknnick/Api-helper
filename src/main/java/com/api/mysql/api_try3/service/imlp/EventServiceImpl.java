@@ -45,7 +45,12 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
-    public List<Event> getEvents(Long idRoom) {
+    public List<Event> getEventsByIdRoom(Long idRoom) {
         return eventRepository.findByIdRoom(idRoom);
+    }
+
+    @Override
+    public List<Event> getAllEvents() {
+        return eventRepository.findAll();
     }
 }

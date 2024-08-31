@@ -23,8 +23,13 @@ public class TaskController {
     }
 
     @GetMapping("/get/all/{idRoom}")
-    public List<Task> getTaskDetails(@PathVariable("idRoom") Long idRoom) {
-        return taskService.getTasks(idRoom);
+    public List<Task> getTasksByIdRoom(@PathVariable("idRoom") Long idRoom) {
+        return taskService.getTasksByIdRoom(idRoom);
+    }
+
+    @GetMapping("/get/all/")
+    public List<Task> getAllTasks() {
+        return taskService.getAllTasks();
     }
 
     @PostMapping("/create")

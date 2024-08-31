@@ -43,7 +43,11 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public List<Task> getTasks(Long idRoom) {
+    public List<Task> getTasksByIdRoom(Long idRoom) {
         return taskRepository.findByIdRoom(idRoom);
+    }
+    @Override
+    public List<Task> getAllTasks() {
+        return taskRepository.findAll();
     }
 }

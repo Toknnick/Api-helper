@@ -23,8 +23,13 @@ public class EventController {
     }
 
     @GetMapping("/get/all/{idRoom}")
-    public List<Event> getEventDetails(@PathVariable("idRoom") Long idRoom) {
-        return eventService.getEvents(idRoom);
+    public List<Event> getEventsByIdRoom(@PathVariable("idRoom") Long idRoom) {
+        return eventService.getEventsByIdRoom(idRoom);
+    }
+
+    @GetMapping("/get/all")
+    public List<Event> getEventDetails() {
+        return eventService.getAllEvents();
     }
 
     @PostMapping("/create")
