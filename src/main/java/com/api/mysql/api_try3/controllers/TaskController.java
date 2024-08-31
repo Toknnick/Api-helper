@@ -27,7 +27,7 @@ public class TaskController {
         return taskService.getTasksByIdRoom(idRoom);
     }
 
-    @GetMapping("/get/all/")
+    @GetMapping("/get/all")
     public List<Task> getAllTasks() {
         return taskService.getAllTasks();
     }
