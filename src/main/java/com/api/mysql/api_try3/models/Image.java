@@ -16,15 +16,6 @@ public class Image {
     private String time;
     private byte[] imageData;
     private String imageType;
-    private int imageSize;
-
-    public int getImageSize() {
-        return imageSize;
-    }
-
-    public void setImageSize(int imageSize) {
-        this.imageSize = imageSize;
-    }
 
     public Long getIdImage() {
         return idImage;

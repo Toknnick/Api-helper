@@ -15,10 +15,10 @@ public class ImageController {
         this.imageService = imageService;
     }
 
-    @GetMapping("/get/one/{idRoom}/{date}/{time}/{imageSize}/{imageType}")
+    @GetMapping("/get/one/{idRoom}/{date}/{time}/{imageData}/{imageType}")
     public Image getImageDetails(@PathVariable("idRoom") Long idRoom, @PathVariable("date") String date, @PathVariable("time") String time
-            , @PathVariable("imageSize") int imageSize, @PathVariable("imageType") String imageType) {
-        return imageService.getImage(idRoom, date, time, imageSize, imageType);
+            , @PathVariable("imageData") byte[] imageData, @PathVariable("imageType") String imageType) {
+        return imageService.getImage(idRoom, date, time, imageData, imageType);
     }
 
     @GetMapping("/get/all/{idRoom}")

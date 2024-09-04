@@ -8,7 +8,7 @@ public interface ImageService {
     public Image createImage(Image image);
     public String deleteImage(Long idImage);
     public Image updateImage(Image image);
-    public Image getImage(Long idRoom, String date, String time, int imageSize,String imageType);
+    public Image getImage(Long idRoom, String date, String time,byte[] imageData,String imageType);
     public List<Image> getImagesByIdRoom(Long idRoom);
     public List<Image> getAllImages();
 }

@@ -37,8 +37,8 @@ public class ImageServiceImpl implements ImageService {
     }
 
     @Override
-    public Image getImage(Long idRoom, String date, String time, int imageSize, String imageType) {
-        return imageRepository.findImageByCriteria(idRoom, date,time,imageSize,imageType);
+    public Image getImage(Long idRoom, String date, String time, byte[] imageData, String imageType) {
+        return imageRepository.findImageByCriteria(idRoom, date, time, imageData, imageType);
     }
 
     @Override
