@@ -15,17 +15,12 @@ import java.sql.NClob;
 public class Image implements Serializable {
     @Id
     private Long idImage;
-
     private Long idRoom;
-
     private String date;
-
     private String time;
-
-    @Lob
-    private Blob imageData;
-
+    private byte[] imageData;
     private String imageType;
+
 
     public Long getIdImage() {
         return idImage;
@@ -59,11 +54,11 @@ public class Image implements Serializable {
         this.time = time;
     }
 
-    public Blob getImageData() {
+    public byte[] getImageData() {
         return imageData;
     }
 
-    public void setImageData(Blob imageData) {
+    public void setImageData(byte[] imageData) {
         this.imageData = imageData;
     }
 
