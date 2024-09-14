@@ -17,7 +17,7 @@ public class ImageController {
 
     @GetMapping("/get/one/{idRoom}/{date}/{time}/{imageData}/{imageType}")
     public Image getImageDetails(@PathVariable("idRoom") Long idRoom, @PathVariable("date") String date, @PathVariable("time") String time
-            , @PathVariable("imageData") byte[] imageData, @PathVariable("imageType") String imageType) {
+            , @PathVariable("imageData") String imageData, @PathVariable("imageType") String imageType) {
         return imageService.getImage(idRoom, date, time, imageData, imageType);
     }
 

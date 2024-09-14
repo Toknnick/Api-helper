@@ -18,7 +18,7 @@ public class Image implements Serializable {
     private Long idRoom;
     private String date;
     private String time;
-    private byte[] imageData;
+    private String imageData;
     private String imageType;
 
 
@@ -54,11 +54,11 @@ public class Image implements Serializable {
         this.time = time;
     }
 
-    public byte[] getImageData() {
+    public String getImageData() {
         return imageData;
     }
 
-    public void setImageData(byte[] imageData) {
+    public void setImageData(String imageData) {
         this.imageData = imageData;
     }
 
