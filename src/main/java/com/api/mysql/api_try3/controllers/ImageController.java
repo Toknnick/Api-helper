@@ -17,15 +17,14 @@ public class ImageController {
 
     ImageServiceImpl imageService;
 
-    public ImageController(ImageServiceImpl imageRepository) {
+    public ImageController(ImageServiceImpl imageService) {
         this.imageService = imageService;
     }
 
 
-    @GetMapping("/get/one/{idRoom}/{date}/{time}/{imageData}/{imageType}")
-    public Image getImageDetails(@PathVariable("idRoom") Long idRoom, @PathVariable("date") String date, @PathVariable("time") String time
-            , @PathVariable("imageData") byte[] imageData) {
-        return imageService.getImage(idRoom, date, time, imageData);
+    @GetMapping("/get/one/{idRoom}/{date}/{time}")
+    public Image getImageDetails(@PathVariable("idRoom") Long idRoom, @PathVariable("date") String date, @PathVariable("time") String time) {
+        return imageService.getImage(idRoom, date, time);
     }
 
     @GetMapping("/get/all/{idRoom}")
