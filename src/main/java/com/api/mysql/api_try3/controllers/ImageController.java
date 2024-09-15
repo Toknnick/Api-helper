@@ -22,9 +22,9 @@ public class ImageController {
     }
 
 
-    @GetMapping("/get/one/{idRoom}/{date}/{time}")
-    public Image getImageDetails(@PathVariable("idRoom") Long idRoom, @PathVariable("date") String date, @PathVariable("time") String time) {
-        return imageService.getImage(idRoom, date, time);
+    @GetMapping("/get/one/{idRoom}/{date}/{time}/{url}")
+    public Image getImageDetails(@PathVariable("idRoom") Long idRoom, @PathVariable("date") String date, @PathVariable("time") String time, @PathVariable("url") String url) {
+        return imageService.getImage(idRoom, date, time,url);
     }
 
     @GetMapping("/get/all/{idRoom}")
@@ -38,26 +38,9 @@ public class ImageController {
     }
 
     @PostMapping("/create")
-    public String createImage(@RequestParam("image") MultipartFile file,
-                              @RequestParam("idImage") Long idImage,
-                              @RequestParam("idRoom") Long idRoom,
-                              @RequestParam("date") String date,
-                              @RequestParam("time") String time) {
-
-        try {
-            Image image = new Image();
-            image.setIdImage(idImage);
-            image.setIdRoom(idRoom);
-            image.setDate(date);
-            image.setTime(time);
-            image.setFileName(file.getOriginalFilename());
-            image.setImageData(file.getBytes());
-            imageService.createImage(image);
-            return "File uploaded successfully!";
-        } catch (IOException e) {
-            e.printStackTrace();
-            return "Failed to upload file.";
-        }
+    public String createImage(@RequestBody Image image) {
+        imageService.createImage(image);
+        return "Image created";
     }
 
     @DeleteMapping("/delete/{idImage}")

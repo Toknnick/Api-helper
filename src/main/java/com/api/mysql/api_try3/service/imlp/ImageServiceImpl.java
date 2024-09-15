@@ -23,8 +23,8 @@ public class ImageServiceImpl {
     public void deleteImage(Long idImage) {
         imageRepository.deleteById(idImage);
     }
-    public Image getImage(Long idRoom, String date, String time) {
-        return imageRepository.findImageByCriteria(idRoom, date, time);
+    public Image getImage(Long idRoom, String date, String time, String url) {
+        return imageRepository.findImageByCriteria(idRoom, date, time, url);
     }
 
     public List<Image> getImagesByIdRoom(Long idRoom) {
