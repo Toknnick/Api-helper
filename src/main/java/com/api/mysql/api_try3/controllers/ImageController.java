@@ -1,24 +1,31 @@
 package com.api.mysql.api_try3.controllers;
 
 import com.api.mysql.api_try3.models.Image;
+import com.api.mysql.api_try3.repository.ImageRepository;
 import com.api.mysql.api_try3.service.ImageService;
+import com.api.mysql.api_try3.service.imlp.ImageServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
 @RequestMapping("/images")
 public class ImageController {
-    ImageService imageService;
 
-    public ImageController(ImageService imageService) {
+    ImageServiceImpl imageService;
+
+    public ImageController(ImageServiceImpl imageRepository) {
         this.imageService = imageService;
     }
 
+
     @GetMapping("/get/one/{idRoom}/{date}/{time}/{imageData}/{imageType}")
     public Image getImageDetails(@PathVariable("idRoom") Long idRoom, @PathVariable("date") String date, @PathVariable("time") String time
-            , @PathVariable("imageData") String imageData, @PathVariable("imageType") String imageType) {
-        return imageService.getImage(idRoom, date, time, imageData, imageType);
+            , @PathVariable("imageData") byte[] imageData) {
+        return imageService.getImage(idRoom, date, time, imageData);
     }
 
     @GetMapping("/get/all/{idRoom}")
@@ -32,15 +39,26 @@ public class ImageController {
     }
 
     @PostMapping("/create")
-    public Image createImage(@RequestBody Image image) {
-        imageService.createImage(image);
-        return image;
-    }
+    public String createImage(@RequestParam("image") MultipartFile file,
+                              @RequestParam("idImage") Long idImage,
+                              @RequestParam("idRoom") Long idRoom,
+                              @RequestParam("date") String date,
+                              @RequestParam("time") String time) {
 
-    @PutMapping("/update")
-    public Image updateImage(@RequestBody Image image) {
-        imageService.updateImage(image);
-        return image;
+        try {
+            Image image = new Image();
+            image.setIdImage(idImage);
+            image.setIdRoom(idRoom);
+            image.setDate(date);
+            image.setTime(time);
+            image.setFileName(file.getOriginalFilename());
+            image.setImageData(file.getBytes());
+            imageService.createImage(image);
+            return "File uploaded successfully!";
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "Failed to upload file.";
+        }
     }
 
     @DeleteMapping("/delete/{idImage}")

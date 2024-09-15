@@ -17,11 +17,13 @@ public class Image implements Serializable {
     private Long idImage;
     private Long idRoom;
     private String date;
+    private String fileName;
     private String time;
-    private String imageData;
-    private String imageType;
+    @Lob
+    private byte[] imageData;
 
 
+    // Getters and Setters
     public Long getIdImage() {
         return idImage;
     }
@@ -46,6 +48,14 @@ public class Image implements Serializable {
         this.date = date;
     }
 
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
     public String getTime() {
         return time;
     }
@@ -54,19 +64,11 @@ public class Image implements Serializable {
         this.time = time;
     }
 
-    public String getImageData() {
+    public byte[] getImageData() {
         return imageData;
     }
 
-    public void setImageData(String imageData) {
+    public void setImageData(byte[] imageData) {
         this.imageData = imageData;
-    }
-
-    public String getImageType() {
-        return imageType;
-    }
-
-    public void setImageType(String imageType) {
-        this.imageType = imageType;
     }
 }
