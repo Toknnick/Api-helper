@@ -10,6 +10,16 @@ public class Room {
     private String name;
     private String password;
     private Boolean single;
+    private String owner;
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
 
     public Boolean getSingle() {
         return single;

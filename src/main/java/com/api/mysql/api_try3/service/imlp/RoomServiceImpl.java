@@ -30,6 +30,7 @@ public class RoomServiceImpl implements RoomService {
         Room existingRoom = roomRepository.findById(room.getIdRoom()).orElse(new Room());
         existingRoom.setName(room.getName() != null ? room.getName() : existingRoom.getName());
         existingRoom.setPassword(room.getPassword() != null ? room.getPassword() : existingRoom.getPassword());
+        existingRoom.setPassword(room.getOwner() != null ? room.getOwner() : existingRoom.getOwner());
         roomRepository.save(existingRoom);
         return room;
     }
