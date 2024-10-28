@@ -11,6 +11,24 @@ public class Room {
     private String password;
     private Boolean single;
     private String owner;
+    private String users;
+    private String bannedUsers;
+
+    public String getUsers() {
+        return users;
+    }
+
+    public void setUsers(String users) {
+        this.users = users;
+    }
+
+    public String getBannedUsers() {
+        return bannedUsers;
+    }
+
+    public void setBannedUsers(String bannedUsers) {
+        this.bannedUsers = bannedUsers;
+    }
 
     public String getOwner() {
         return owner;
