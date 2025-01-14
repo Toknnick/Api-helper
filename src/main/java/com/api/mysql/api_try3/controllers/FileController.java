@@ -18,12 +18,12 @@ public class FileController {
 
 
     @GetMapping("/get/one/{idRoom}/{date}/{time}/{url}")
-    public File getFileDetails(@PathVariable("idRoom") Long idRoom, @PathVariable("date") String date, @PathVariable("time") String time, @PathVariable("url") String url) {
+    public File getFileDetails(@PathVariable("idRoom") int idRoom, @PathVariable("date") String date, @PathVariable("time") String time, @PathVariable("url") String url) {
         return fileService.getFile(idRoom, date, time,url);
     }
 
     @GetMapping("/get/all/{idRoom}")
-    public List<File> getFilesByIdRoom(@PathVariable("idRoom") Long idRoom) {
+    public List<File> getFilesByIdRoom(@PathVariable("idRoom") int idRoom) {
         return fileService.getFilesByIdRoom(idRoom);
     }
 
@@ -39,7 +39,7 @@ public class FileController {
     }
 
     @DeleteMapping("/delete/{idFile}")
-    public String deleteFile(@PathVariable("idFile") Long idFile) {
+    public String deleteFile(@PathVariable("idFile") int idFile) {
         fileService.deleteFile(idFile);
         return "File deleted successfully";
     }

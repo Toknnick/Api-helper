@@ -16,7 +16,7 @@ public class RoomController {
     }
 
     @GetMapping("/get/{idRoom}")
-    public Room getRoomDetails(@PathVariable("idRoom") Long idRoom) {
+    public Room getRoomDetails(@PathVariable("idRoom") int idRoom) {
         return roomService.getRoom(idRoom);
     }
 
@@ -43,7 +43,7 @@ public class RoomController {
     }
 
     @DeleteMapping("/delete/{idRoom}")
-    public String deleteRoom(@PathVariable("idRoom") Long idRoom) {
+    public String deleteRoom(@PathVariable("idRoom") int idRoom) {
         roomService.deleteRoom(idRoom);
         return "Room deleted successfully";
     }

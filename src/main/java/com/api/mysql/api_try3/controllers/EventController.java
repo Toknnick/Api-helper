@@ -17,13 +17,13 @@ public class EventController {
 
 
     @GetMapping("/get/one/{idRoom}/{date}/{time}/{place}/{event}")
-    public Event getEventDetails(@PathVariable("idRoom") Long idRoom , @PathVariable("date") String date, @PathVariable("time") String time
+    public Event getEventDetails(@PathVariable("idRoom") int idRoom , @PathVariable("date") String date, @PathVariable("time") String time
             , @PathVariable("place") String place, @PathVariable("event") String event) {
         return eventService.getEvent(idRoom, date,time,place,event);
     }
 
     @GetMapping("/get/all/{idRoom}")
-    public List<Event> getEventsByIdRoom(@PathVariable("idRoom") Long idRoom) {
+    public List<Event> getEventsByIdRoom(@PathVariable("idRoom") int idRoom) {
         return eventService.getEventsByIdRoom(idRoom);
     }
 
@@ -45,7 +45,7 @@ public class EventController {
     }
 
     @DeleteMapping("/delete/{idEvent}")
-    public String deleteEvent(@PathVariable("idEvent") Long idEvent) {
+    public String deleteEvent(@PathVariable("idEvent") int idEvent) {
         eventService.deleteEvent(idEvent);
         return "Event deleted successfully";
     }

@@ -23,12 +23,12 @@ public class ImageController {
 
 
     @GetMapping("/get/one/{idRoom}/{date}/{time}/{url}")
-    public Image getImageDetails(@PathVariable("idRoom") Long idRoom, @PathVariable("date") String date, @PathVariable("time") String time, @PathVariable("url") String url) {
+    public Image getImageDetails(@PathVariable("idRoom") int idRoom, @PathVariable("date") String date, @PathVariable("time") String time, @PathVariable("url") String url) {
         return imageService.getImage(idRoom, date, time,url);
     }
 
     @GetMapping("/get/all/{idRoom}")
-    public List<Image> getImagesByIdRoom(@PathVariable("idRoom") Long idRoom) {
+    public List<Image> getImagesByIdRoom(@PathVariable("idRoom") int idRoom) {
         return imageService.getImagesByIdRoom(idRoom);
     }
 
@@ -44,7 +44,7 @@ public class ImageController {
     }
 
     @DeleteMapping("/delete/{idImage}")
-    public String deleteImage(@PathVariable("idImage") Long idImage) {
+    public String deleteImage(@PathVariable("idImage") int idImage) {
         imageService.deleteImage(idImage);
         return "Image deleted successfully";
     }

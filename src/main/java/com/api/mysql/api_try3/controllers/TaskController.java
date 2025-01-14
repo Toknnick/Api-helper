@@ -17,13 +17,13 @@ public class TaskController {
 
 
     @GetMapping("/get/one/{idRoom}/{date}/{time}/{name}/{points}/{checkBoxes}")
-    public Task getTaskDetails(@PathVariable("idRoom") Long idRoom,@PathVariable("date") String date,@PathVariable("time")String time
+    public Task getTaskDetails(@PathVariable("idRoom") int idRoom,@PathVariable("date") String date,@PathVariable("time")String time
             ,@PathVariable("name") String name,@PathVariable("points") String points, @PathVariable("checkBoxes") String checkBoxes) {
         return taskService.getTask(idRoom, date, time, name, points, checkBoxes);
     }
 
     @GetMapping("/get/all/{idRoom}")
-    public List<Task> getTasksByIdRoom(@PathVariable("idRoom") Long idRoom) {
+    public List<Task> getTasksByIdRoom(@PathVariable("idRoom") int idRoom) {
         return taskService.getTasksByIdRoom(idRoom);
     }
 
@@ -45,7 +45,7 @@ public class TaskController {
 
 
     @DeleteMapping("/delete/{idTask}")
-    public String deleteTask(@PathVariable("idTask") Long idTask) {
+    public String deleteTask(@PathVariable("idTask") int idTask) {
         taskService.deleteTask(idTask);
         return "Task deleted successfully";
     }
