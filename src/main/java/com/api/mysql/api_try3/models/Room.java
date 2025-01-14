@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 @Table(name="rooms")
 public class Room {
     @Id
-    private Long idRoom;
+    private int idRoom;
     private String name;
     private String password;
     private Boolean single;
@@ -48,11 +48,11 @@ public class Room {
     }
 
 
-    public Long getIdRoom() {
+    public int getIdRoom() {
         return idRoom;
     }
 
-    public void setIdRoom(Long idRoom) {
+    public void setIdRoom(int idRoom) {
         this.idRoom = idRoom;
     }
 

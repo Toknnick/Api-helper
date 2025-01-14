@@ -38,12 +38,12 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Override
-    public Room getRoom(Long idRoom) {
+    public Room getRoom(int idRoom) {
         return roomRepository.findById(idRoom).orElse(null);
     }
 
     @Override
-    public String deleteRoom(Long idRoom) {
+    public String deleteRoom(int idRoom) {
         roomRepository.deleteById(idRoom);
         return "Success";
     }

@@ -26,7 +26,7 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public String deleteTask(Long idTask) {
+    public String deleteTask(int idTask) {
         taskRepository.deleteById(idTask);
         return "Success";
     }
@@ -38,12 +38,12 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public Task getTask(Long idRoom, String date, String time, String name, String points, String checkBoxes) {
+    public Task getTask(int idRoom, String date, String time, String name, String points, String checkBoxes) {
         return taskRepository.findTaskByCriteria(idRoom, date, time, name, points, checkBoxes).stream().findFirst().orElse(null);
     }
 
     @Override
-    public List<Task> getTasksByIdRoom(Long idRoom) {
+    public List<Task> getTasksByIdRoom(int idRoom) {
         return taskRepository.findByIdRoom(idRoom);
     }
     @Override

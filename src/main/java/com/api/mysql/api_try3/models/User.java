@@ -9,13 +9,13 @@ public class User {
     private String login;
 
     private String password;
-    private Long ownRoom;
+    private int ownRoom;
     private String availableRooms;
 
     public User() {
     }
 
-    public User(String login, String password, String availableRooms, Long ownRoom) {
+    public User(String login, String password, String availableRooms, int ownRoom) {
         this.login = login;
         this.password = password;
         this.ownRoom = ownRoom;
@@ -47,11 +47,11 @@ public class User {
     }
 
 
-    public Long getOwnRoom() {
+    public int getOwnRoom() {
         return ownRoom;
     }
 
-    public void setOwnRoom(Long ownRoom) {
+    public void setOwnRoom(int ownRoom) {
         this.ownRoom = ownRoom;
     }
 

@@ -34,18 +34,18 @@ public class EventServiceImpl implements EventService {
 
 
     @Override
-    public String deleteEvent(Long idEvent) {
+    public String deleteEvent(int idEvent) {
         eventRepository.deleteById(idEvent);
         return "Success";
     }
 
     @Override
-    public Event getEvent(Long idRoom, String date,String time, String place, String event) {
+    public Event getEvent(int idRoom, String date,String time, String place, String event) {
         return eventRepository.findEventByCriteria(idRoom, date,time,place,event);
     }
 
     @Override
-    public List<Event> getEventsByIdRoom(Long idRoom) {
+    public List<Event> getEventsByIdRoom(int idRoom) {
         return eventRepository.findByIdRoom(idRoom);
     }
 

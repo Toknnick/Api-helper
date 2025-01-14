@@ -8,26 +8,26 @@ import java.sql.Date;
 @Table(name="events")
 public class Event {
     @Id
-    private Long idEvent;
-    private Long idRoom;
+    private int idEvent;
+    private int idRoom;
     private String date;
     private String time;
     private String place;
     private String event;
 
-    public Long getIdEvent() {
+    public int getIdEvent() {
         return idEvent;
     }
 
-    public void setIdEvent(Long idEvent) {
+    public void setIdEvent(int idEvent) {
         this.idEvent = idEvent;
     }
 
-    public Long getIdRoom() {
+    public int getIdRoom() {
         return idRoom;
     }
 
-    public void setIdRoom(Long idRoom) {
+    public void setIdRoom(int idRoom) {
         this.idRoom = idRoom;
     }
 

@@ -8,25 +8,25 @@ import jakarta.persistence.Table;
 @Table(name="files")
 public class File {
     @Id
-    private Long idFile;
-    private Long idRoom;
+    private int idFile;
+    private int idRoom;
     private String date;
     private String time;
     private String url;
 
-    public Long getIdFile() {
+    public int getIdFile() {
         return idFile;
     }
 
-    public void setIdFile(Long idFile) {
+    public void setIdFile(int idFile) {
         this.idFile = idFile;
     }
 
-    public Long getIdRoom() {
+    public int getIdRoom() {
         return idRoom;
     }
 
-    public void setIdRoom(Long idRoom) {
+    public void setIdRoom(int idRoom) {
         this.idRoom = idRoom;
     }
 

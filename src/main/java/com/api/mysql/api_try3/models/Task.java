@@ -8,19 +8,19 @@ import java.sql.Date;
 public class Task {
 
     @Id
-    private Long idTask;
-    private Long idRoom;
+    private int idTask;
+    private int idRoom;
     private String date;
     private String time;
     private String name;
     private String points;
     private String checkBoxes;
 
-    public Long getIdRoom() {
+    public int getIdRoom() {
         return idRoom;
     }
 
-    public void setIdRoom(Long idRoom) {
+    public void setIdRoom(int idRoom) {
         this.idRoom = idRoom;
     }
 
@@ -64,11 +64,11 @@ public class Task {
         this.checkBoxes = checkBoxes;
     }
 
-    public void setIdTask(Long idTask) {
+    public void setIdTask(int idTask) {
         this.idTask = idTask;
     }
 
-    public Long getIdTask() {
+    public int getIdTask() {
         return idTask;
     }
 }

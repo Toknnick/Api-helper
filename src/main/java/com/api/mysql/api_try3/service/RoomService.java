@@ -9,6 +9,6 @@ public interface RoomService {
     public Room createRoom(Room room);
     public Room updateRoom(Room room);
     public List<Room> getAllRooms();
-    public String deleteRoom(Long idRoom);
-    public Room getRoom(Long idRoom);
+    public String deleteRoom(int idRoom);
+    public Room getRoom(int idRoom);
 }

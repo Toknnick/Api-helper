@@ -14,25 +14,25 @@ import java.sql.NClob;
 @Table(name = "images")
 public class Image implements Serializable {
     @Id
-    private Long idImage;
-    private Long idRoom;
+    private int idImage;
+    private int idRoom;
     private String date;
     private String time;
     private String url;
 
-    public Long getIdImage() {
+    public int getIdImage() {
         return idImage;
     }
 
-    public void setIdImage(Long idImage) {
+    public void setIdImage(int idImage) {
         this.idImage = idImage;
     }
 
-    public Long getIdRoom() {
+    public int getIdRoom() {
         return idRoom;
     }
 
-    public void setIdRoom(Long idRoom) {
+    public void setIdRoom(int idRoom) {
         this.idRoom = idRoom;
     }
 

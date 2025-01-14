@@ -8,9 +8,9 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface ImageRepository extends JpaRepository<Image, Long> {
+public interface ImageRepository extends JpaRepository<Image, Integer> {
     @Query("SELECT i FROM Image i WHERE i.idRoom = :idRoom AND i.date = :date AND i.time = :time AND i.url = :url")
-    Image findImageByCriteria(@Param("idRoom") Long idRoom, @Param("date") String date, @Param("time") String time, @Param("url") String url);
+    Image findImageByCriteria(@Param("idRoom") int idRoom, @Param("date") String date, @Param("time") String time, @Param("url") String url);
 
-    List<Image> findByIdRoom(Long idRoom);
+    List<Image> findByIdRoom(int idRoom);
 }

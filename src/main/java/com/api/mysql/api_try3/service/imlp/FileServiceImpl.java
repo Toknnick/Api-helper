@@ -20,14 +20,14 @@ public class FileServiceImpl {
         fileRepository.save(file);
     }
 
-    public void deleteFile(Long idFile) {
+    public void deleteFile(int idFile) {
         fileRepository.deleteById(idFile);
     }
-    public File getFile(Long idRoom, String date, String time, String url) {
+    public File getFile(int idRoom, String date, String time, String url) {
         return fileRepository.findFileByCriteria(idRoom, date, time, url);
     }
 
-    public List<File> getFilesByIdRoom(Long idRoom) {
+    public List<File> getFilesByIdRoom(int idRoom) {
         return fileRepository.findByIdRoom(idRoom);
     }
 

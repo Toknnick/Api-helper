@@ -6,10 +6,10 @@ import java.util.List;
 
 public interface TaskService {
     public Task createTask(Task task);
-    public String deleteTask(Long idTask);
+    public String deleteTask(int idTask);
     public Task updateTask(Task task);
-    public Task getTask(Long idRoom, String date, String time, String name, String points, String checkBoxes);
-    public List<Task> getTasksByIdRoom(Long idRoom);
+    public Task getTask(int idRoom, String date, String time, String name, String points, String checkBoxes);
+    public List<Task> getTasksByIdRoom(int idRoom);
     public List<Task> getAllTasks();
 
 
